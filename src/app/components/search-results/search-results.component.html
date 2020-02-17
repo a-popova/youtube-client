@@ -1,2 +1,3 @@
-<p>search-results works!</p>
-<app-search-item></app-search-item>
+<div class="search-results-container" *ngIf="searchIsLoaded">
+    <app-search-item *ngFor="let item of searchResponse.items" [searchItem]="item"></app-search-item>
+</div>

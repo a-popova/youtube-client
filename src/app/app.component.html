@@ -1,4 +1,4 @@
 
 <router-outlet></router-outlet>
-<app-header></app-header>
-<app-search-results></app-search-results>
+<app-header (onSearch)="onSearch()"></app-header>
+<app-search-results [searchResponse]="searchResponse" [searchIsLoaded]="searchIsLoaded"></app-search-results>

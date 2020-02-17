@@ -1,0 +1,12 @@
+.filter-container {
+    display: flex;
+    justify-content: center;
+
+    span {
+        margin: 0 0.5em 0 1.5em;
+        color: #2f80ed;
+        font-size: 12px;
+        line-height: 14px;
+        text-decoration-line: underline;
+    }
+}

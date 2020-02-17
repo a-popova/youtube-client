@@ -1,1 +1,31 @@
-<p>search-item works!</p>
+<div class="search-item" [ngClass]="getBorderColor()">
+    <div class="search-item--details">
+        <div class="search-item--details--image">
+            <img src="{{searchItem.snippet.thumbnails.medium.url}}">
+        </div>
+        <div class="search-item--details--stats">
+            <div class="views">
+                <img src="../../../assets/images/viewed.svg">
+                <p>{{searchItem.statistics.viewCount}}</p>
+            </div>
+            <div class="likes">
+                <img src="../../../assets/images/liked.svg">
+                <p>{{searchItem.statistics.likeCount}}</p>
+            </div>
+            <div class="dislikes">
+                <img src="../../../assets/images/dislike.svg">
+                <p>{{searchItem.statistics.dislikeCount}}</p>
+            </div>
+            <div class="comments">
+                <img src="../../../assets/images/Group 9.svg">
+                <p>{{searchItem.statistics.commentCount}}</p>
+            </div>
+        </div>
+        <div class="search-item--details--name">
+            <p>{{searchItem.snippet.title}}</p>
+        </div>
+    </div>
+    <div class="search-item--more">
+        <input type="submit" value="more...">
+    </div>
+</div>

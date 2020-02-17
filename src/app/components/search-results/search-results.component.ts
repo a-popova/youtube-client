@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import SearchResponse from '../../models/search-response.model';
 
@@ -8,7 +8,8 @@ import SearchResponse from '../../models/search-response.model';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  public searchResponse: SearchResponse;
+  @Input() searchResponse: SearchResponse;
+  @Input() searchIsLoaded: boolean;
 
   constructor() { }
 
