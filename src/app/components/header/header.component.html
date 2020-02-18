@@ -5,11 +5,11 @@
                 <img src="../../../assets/images/logo.png" width="50" height="50">
             </div>
             <form class="search-pannel--input">
-                <input type="text" placeholder="What are you searching for?">
-                <input type="submit" value="search" (click)="showResults($event)">
+                <input #textInput type="text" placeholder="What are you searching for?">
+                <input type="submit" value="search" (click)="showResults($event, textInput.value)">
             </form>
             <div class="search-pannel--filter-button">
-                <input class="filter" type="submit" value="" title="show filters" (click)="showFilterPannel()">
+                <input class="filter" type="submit" value="" title="show filters" (click)="showFilterPanel()">
             </div>
         </div>
         <div class="login">
@@ -22,6 +22,7 @@
         </div>
     </div>  
     <div class="filter-pannel">
-        <app-filtering-criteria [filterIsActive]="filterIsActive"></app-filtering-criteria>
+        <app-filtering-criteria [filterIsActive]="filterIsActive"
+        (sortByDate)="sortByDate()" (sortByViews)="sortByViews()"></app-filtering-criteria>
     </div>  
 </div>

@@ -11,6 +11,11 @@ export class AppComponent {
   public title: string = 'youtube-client';
   public searchResponse: SearchResponse = MockedSearchResponse;
   public searchIsLoaded: boolean = false;
+  public criteria: string = "";
+
+  public setCriteria(criteria) {
+    this.criteria = criteria;
+  }
 
   public onSearch() {
     this.searchIsLoaded = true;

@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { FilteringCriteriaComponent } from './components/filtering-criteria/filtering-criteria.component';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FilteringCriteriaComponent } from './components/filtering-criteria/filt
     HeaderComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    FilteringCriteriaComponent
+    FilteringCriteriaComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

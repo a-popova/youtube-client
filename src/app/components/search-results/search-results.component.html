@@ -1,3 +1,8 @@
-<div class="search-results-container" *ngIf="searchIsLoaded">
-    <app-search-item *ngFor="let item of searchResponse.items" [searchItem]="item"></app-search-item>
+<div class="search-results-container" *ngIf="searchIsLoaded; else noResultsBlock">
+    <app-search-item *ngFor="let item of (searchResponse.items | sort: criteria)" [searchItem]="item"></app-search-item>
 </div>
+<ng-template #noResultsBlock>
+    <div class="noResults">
+        <p>No results found :(</p>
+    </div>
+</ng-template>

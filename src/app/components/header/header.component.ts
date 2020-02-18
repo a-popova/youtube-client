@@ -7,16 +7,29 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() onSearch = new EventEmitter();
+  @Output() onSort = new EventEmitter();
 
   public filterIsActive: boolean = false;
 
-  showResults(event: InputEvent) {
-    event.preventDefault();
-    this.onSearch.emit();
+  showResults(event: InputEvent, input: string) {
+    if (input) {
+      event.preventDefault();
+      this.onSearch.emit();
+    } else {
+      alert('Please, enter some text in search field');
+    }
   }
 
-  showFilterPannel() {
+  showFilterPanel() {
     this.filterIsActive ? this.filterIsActive = false : this.filterIsActive = true;
+  }
+
+  public sortByDate() {
+    this.onSort.emit('date');
+  }
+
+  public sortByViews() {
+    this.onSort.emit('views');
   }
 
   constructor() { }

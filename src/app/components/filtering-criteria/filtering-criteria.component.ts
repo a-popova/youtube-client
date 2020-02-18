@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filtering-criteria',
@@ -7,6 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FilteringCriteriaComponent implements OnInit {
   @Input() filterIsActive: boolean;
+  @Output() sortByDate = new EventEmitter();
+  @Output() sortByViews = new EventEmitter();
+
+  clickSortByDate() {
+    this.sortByDate.emit();
+  }
+
+  clickSortByViews() {
+    this.sortByViews.emit();
+  }
 
   constructor() { }
 

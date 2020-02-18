@@ -8,3 +8,11 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.noResults {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}

@@ -1,4 +1,5 @@
 
 <router-outlet></router-outlet>
-<app-header (onSearch)="onSearch()"></app-header>
-<app-search-results [searchResponse]="searchResponse" [searchIsLoaded]="searchIsLoaded"></app-search-results>
+<app-header (onSearch)="onSearch()" (onSort)="setCriteria($event)"></app-header>
+<app-search-results [searchResponse]="searchResponse"
+ [searchIsLoaded]="searchIsLoaded" [criteria]="criteria"></app-search-results>
