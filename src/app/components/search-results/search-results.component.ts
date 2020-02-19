@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import SearchResponse from '../../models/search-response.model';
+import { YoutubeVideosService } from '../../youtube-videos.service';
 
 @Component({
   selector: 'app-search-results',
@@ -8,15 +9,20 @@ import SearchResponse from '../../models/search-response.model';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() searchResponse: SearchResponse;
   @Input() searchIsLoaded: boolean;
   @Input() filterIsClicked: boolean = false;
   @Input() criteria: string;
   @Input() queryWord: string;
 
-  constructor() { }
+  public searchResponse: SearchResponse;
+  public getVideos(): void {
+    this.searchResponse = this.youtubeVideosService.getVideos();
+  }
+
+  constructor(private youtubeVideosService: YoutubeVideosService) { }
 
   public ngOnInit(): void {
+    this.getVideos();
   }
 
 }
