@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-filtering-criteria',
   templateUrl: './filtering-criteria.component.html',
@@ -19,11 +22,17 @@ export class FilteringCriteriaComponent implements OnInit {
     this.sortByViews.emit();
   }
 
-  clickByWord(input: HTMLInputElement) {
-    this.sortByWord.emit(input.value);
-  }
+  public userInput: string;
+  userInputUpdate = new Subject<string>();
 
-  constructor() { }
+  constructor() {
+    this.userInputUpdate.pipe(
+      debounceTime(400),
+      distinctUntilChanged())
+      .subscribe(value => {
+        this.sortByWord.emit(value);;
+      });
+  }
 
   ngOnInit(): void {
   }

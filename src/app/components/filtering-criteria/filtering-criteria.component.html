@@ -1,5 +1,6 @@
 <div *ngIf="filterIsActive" class="filter-container">
     <p>Sorting by: <span (click)="clickSortByDate()">date</span> 
     <span (click)="clickSortByViews()">count of views</span>
-    <span (click)="clickByWord(input)">by word or sentence</span><input #input type="text"></p>
+    <span >by word or sentence</span>
+    <input #input [(ngModel)]="userInput" type="text" (ngModelChange)="this.userInputUpdate.next($event)"></p>
 </div>
