@@ -8,8 +8,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() onSearch = new EventEmitter();
   @Output() onSort = new EventEmitter();
+  @Output() onSortByWord = new EventEmitter();
 
   public filterIsActive: boolean = false;
+  public input: string = "";
 
   showResults(event: InputEvent, input: string) {
     if (input) {
@@ -30,6 +32,12 @@ export class HeaderComponent implements OnInit {
 
   public sortByViews() {
     this.onSort.emit('views');
+  }
+
+  public sortByWord(inputValue: string) {
+    this.onSort.emit('word');
+    this.input = inputValue;
+    this.onSortByWord.emit(this.input);
   }
 
   constructor() { }

@@ -7,7 +7,7 @@ import * as moment from 'moment';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(items: SearchItem[], criteria?: string): SearchItem[] {
+  transform(items: SearchItem[], criteria?: string, queryWord?: string): SearchItem[] {
     switch (criteria) {
       case 'date': {
         return items.sort((prev, next) => {
@@ -28,6 +28,12 @@ export class SortPipe implements PipeTransform {
           }
         })
         
+      }
+
+      case 'word': {
+        let sortedArray = items.filter((item) => 
+        item.snippet.title.includes(queryWord));
+        return sortedArray;
       }
 
       default: {

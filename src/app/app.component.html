@@ -1,5 +1,5 @@
 
 <router-outlet></router-outlet>
-<app-header (onSearch)="onSearch()" (onSort)="setCriteria($event)"></app-header>
+<app-header (onSearch)="onSearch()" (onSort)="setCriteria($event)" (onSortByWord)="setQueryWord($event)"></app-header>
 <app-search-results [searchResponse]="searchResponse"
- [searchIsLoaded]="searchIsLoaded" [criteria]="criteria"></app-search-results>
+ [searchIsLoaded]="searchIsLoaded" [criteria]="criteria" [queryWord]="queryWord"></app-search-results>

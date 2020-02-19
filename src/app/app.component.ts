@@ -12,9 +12,14 @@ export class AppComponent {
   public searchResponse: SearchResponse = MockedSearchResponse;
   public searchIsLoaded: boolean = false;
   public criteria: string = "";
+  public queryWord: string = "";
 
-  public setCriteria(criteria) {
+  public setCriteria(criteria: string) {
     this.criteria = criteria;
+  }
+
+  public setQueryWord(query: string) {
+    this.queryWord = query;
   }
 
   public onSearch() {

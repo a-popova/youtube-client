@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import SearchResponse from '../../models/search-response.model';
-//import { SortPipe } from '../../sort.pipe';
 
 @Component({
   selector: 'app-search-results',
@@ -13,6 +12,7 @@ export class SearchResultsComponent implements OnInit {
   @Input() searchIsLoaded: boolean;
   @Input() filterIsClicked: boolean = false;
   @Input() criteria: string;
+  @Input() queryWord: string;
 
   constructor() { }
 

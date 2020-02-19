@@ -9,6 +9,7 @@ export class FilteringCriteriaComponent implements OnInit {
   @Input() filterIsActive: boolean;
   @Output() sortByDate = new EventEmitter();
   @Output() sortByViews = new EventEmitter();
+  @Output() sortByWord = new EventEmitter();
 
   clickSortByDate() {
     this.sortByDate.emit();
@@ -16,6 +17,10 @@ export class FilteringCriteriaComponent implements OnInit {
 
   clickSortByViews() {
     this.sortByViews.emit();
+  }
+
+  clickByWord(input: HTMLInputElement) {
+    this.sortByWord.emit(input.value);
   }
 
   constructor() { }
