@@ -3,26 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { SearchItemComponent } from './components/search-item/search-item.component';
-import { FilteringCriteriaComponent } from './components/filtering-criteria/filtering-criteria.component';
-import { SortPipe } from './sort.pipe';
-import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { YoutubeModule } from './youtube/youtube.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchResultsComponent,
-    SearchItemComponent,
-    FilteringCriteriaComponent,
-    SortPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    CoreModule,
+    YoutubeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

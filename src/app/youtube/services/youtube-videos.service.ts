@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import SearchResponse from './models/search-response.model';
-import { mockedSearchResponse } from './mock.response';
+import SearchResponse from '../models/search-response.model';
+import { mockedSearchResponse } from '../mock.response';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class YoutubeVideosService {
   constructor() { }
 

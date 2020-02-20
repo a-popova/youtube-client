@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import SearchResponse from '../../models/search-response.model';
-import { YoutubeVideosService } from '../../youtube-videos.service';
+import { YoutubeVideosService } from '../../services/youtube-videos.service';
 
 @Component({
   selector: 'app-search-results',
