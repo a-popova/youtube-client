@@ -9,25 +9,25 @@ import SearchItem from '../../models/search-item.model';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent implements OnInit {
-  @Input() searchItem: SearchItem;
+  @Input() public searchItem: SearchItem;
 
-  public getBorderColor() {
-    let datePublished = moment(this.searchItem.snippet.publishedAt);
-    let currentDate = moment();
-    let daysDiff = currentDate.diff(datePublished, 'days');
-    let monthDiff = currentDate.diff(datePublished, 'months');
+  constructor() {
+  }
+
+  public getBorderColor(): string {
+    let datePublished: moment.Moment = moment(this.searchItem.snippet.publishedAt);
+    let currentDate: moment.Moment = moment();
+    let daysDiff: number = currentDate.diff(datePublished, 'days');
+    let monthDiff: number = currentDate.diff(datePublished, 'months');
     if (daysDiff <= 7) {
       return 'blue';
     } else if (monthDiff <= 1) {
       return 'green';
     } else if (monthDiff > 1 && monthDiff < 6) {
-      return 'yellow'
+      return 'yellow';
     } else {
       return 'red';
     }
-  }
-
-  constructor() { 
   }
 
   public ngOnInit(): void {

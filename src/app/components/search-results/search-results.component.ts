@@ -9,17 +9,18 @@ import { YoutubeVideosService } from '../../youtube-videos.service';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() searchIsLoaded: boolean;
-  @Input() filterIsClicked: boolean = false;
-  @Input() criteria: string;
-  @Input() queryWord: string;
+  @Input() public searchIsLoaded: boolean;
+  @Input() public filterIsClicked: boolean = false;
+  @Input() public criteria: string;
+  @Input() public queryWord: string;
 
   public searchResponse: SearchResponse;
+
+  constructor(private youtubeVideosService: YoutubeVideosService) { }
+
   public getVideos(): void {
     this.searchResponse = this.youtubeVideosService.getVideos();
   }
-
-  constructor(private youtubeVideosService: YoutubeVideosService) { }
 
   public ngOnInit(): void {
     this.getVideos();

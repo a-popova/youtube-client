@@ -7,7 +7,7 @@ import * as moment from 'moment';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(items: SearchItem[], criteria?: string, queryWord?: string): SearchItem[] {
+  public transform(items: SearchItem[], criteria?: string, queryWord?: string): SearchItem[] {
     switch (criteria) {
       case 'date': {
         return items.sort((prev, next) => {
@@ -16,7 +16,7 @@ export class SortPipe implements PipeTransform {
           } else {
             return 1;
           }
-        })
+        });
       }
 
       case 'views': {
@@ -26,12 +26,11 @@ export class SortPipe implements PipeTransform {
           } else {
             return 1;
           }
-        })
-        
+        });
       }
 
       case 'word': {
-        let sortedArray = items.filter((item) => 
+        let sortedArray: SearchItem[] = items.filter((item) =>
         item.snippet.title.includes(queryWord));
         return sortedArray;
       }
@@ -41,7 +40,7 @@ export class SortPipe implements PipeTransform {
           if (prev.id > next.id) {
             return 1;
           }
-        })
+        });
       }
     }
   }

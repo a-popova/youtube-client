@@ -6,14 +6,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output() onSearch = new EventEmitter();
-  @Output() onSort = new EventEmitter();
-  @Output() onSortByWord = new EventEmitter();
+  @Output() public onSearch: EventEmitter<string> = new EventEmitter();
+  @Output() public onSort: EventEmitter<string> = new EventEmitter();
+  @Output() public onSortByWord: EventEmitter<string> = new EventEmitter();
 
   public filterIsActive: boolean = false;
-  public input: string = "";
+  public input: string = '';
 
-  showResults(event: InputEvent, input: string) {
+  constructor() { }
+
+  public showResults(event: InputEvent, input: string): void {
     if (input) {
       event.preventDefault();
       this.onSearch.emit();
@@ -22,25 +24,23 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  showFilterPanel() {
+  public showFilterPanel(): void {
     this.filterIsActive ? this.filterIsActive = false : this.filterIsActive = true;
   }
 
-  public sortByDate() {
+  public sortByDate(): void {
     this.onSort.emit('date');
   }
 
-  public sortByViews() {
+  public sortByViews(): void {
     this.onSort.emit('views');
   }
 
-  public sortByWord(inputValue: string) {
+  public sortByWord(inputValue: string): void {
     this.onSort.emit('word');
     this.input = inputValue;
     this.onSortByWord.emit(this.input);
   }
-
-  constructor() { }
 
   public ngOnInit(): void {
   }

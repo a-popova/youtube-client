@@ -2,7 +2,7 @@ import { SortPipe } from './sort.pipe';
 
 describe('SortPipe', () => {
   it('create an instance', () => {
-    const pipe = new SortPipe();
+    const pipe: SortPipe = new SortPipe();
     expect(pipe).toBeTruthy();
   });
 });

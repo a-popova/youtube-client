@@ -3,6 +3,11 @@
   "extends": [
     "codelyzer"
   ],
+  "linterOptions": {
+    "exclude": [
+        "src/app/mock.response.ts"
+    ]
+  },
   "jsRules": {},
   "rules": {
     "align": [

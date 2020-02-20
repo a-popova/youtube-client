@@ -9,32 +9,31 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
   styleUrls: ['./filtering-criteria.component.scss']
 })
 export class FilteringCriteriaComponent implements OnInit {
-  @Input() filterIsActive: boolean;
-  @Output() sortByDate = new EventEmitter();
-  @Output() sortByViews = new EventEmitter();
-  @Output() sortByWord = new EventEmitter();
-
-  clickSortByDate() {
-    this.sortByDate.emit();
-  }
-
-  clickSortByViews() {
-    this.sortByViews.emit();
-  }
-
+  @Input() public filterIsActive: boolean;
+  @Output() public sortByDate: EventEmitter<string> = new EventEmitter();
+  @Output() public sortByViews: EventEmitter<string> = new EventEmitter();
+  @Output() public sortByWord: EventEmitter<string> = new EventEmitter();
   public userInput: string;
-  userInputUpdate = new Subject<string>();
+  public userInputUpdate: Subject<string> = new Subject<string>();
 
   constructor() {
     this.userInputUpdate.pipe(
       debounceTime(400),
       distinctUntilChanged())
       .subscribe(value => {
-        this.sortByWord.emit(value);;
+        this.sortByWord.emit(value);
       });
   }
 
-  ngOnInit(): void {
+  public clickSortByDate(): void {
+    this.sortByDate.emit();
+  }
+
+  public clickSortByViews(): void {
+    this.sortByViews.emit();
+  }
+
+  public ngOnInit(): void {
   }
 
 }
