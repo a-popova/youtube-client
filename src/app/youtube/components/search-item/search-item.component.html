@@ -1,4 +1,4 @@
-<div class="search-item" [ngClass]="getBorderColor()">
+<div class="search-item" appGetBorderColor [datePublished]="datePublished">
     <div class="search-item--details">
         <div class="search-item--details--image">
             <img src="{{searchItem.snippet.thumbnails.medium.url}}">

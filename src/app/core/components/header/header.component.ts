@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public showFilterPanel(): void {
-    this.filterIsActive ? this.filterIsActive = false : this.filterIsActive = true;
+    this.filterIsActive = !this.filterIsActive;
   }
 
   public sortByDate(): void {
