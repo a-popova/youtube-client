@@ -1,0 +1,18 @@
+:host {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textblock {
+    display: flex;
+    align-items: center;
+    p {
+        color: #828282;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 1.5em;
+    }
+}

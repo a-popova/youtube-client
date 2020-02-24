@@ -5,6 +5,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { YoutubeVideosService } from './services/youtube-videos.service';
 import { GetBorderColorDirective } from './directives/get-border-color.directive';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { GetBorderColorDirective } from './directives/get-border-color.directive
     SearchItemComponent,
     SearchResultsComponent,
     SortPipe,
-    GetBorderColorDirective
+    GetBorderColorDirective,
+    MainPageComponent
   ],
   imports: [
     CommonModule
