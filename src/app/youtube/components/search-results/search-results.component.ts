@@ -10,13 +10,13 @@ import { YoutubeVideosService } from '../../services/youtube-videos.service';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() public searchIsLoaded: boolean;
-  @Input() public filterIsClicked: boolean = false;
   @Input() public criteria: string;
   @Input() public queryWord: string;
-
   public searchResponse: SearchResponse;
 
-  constructor(private youtubeVideosService: YoutubeVideosService) { }
+  @Input() public filterIsClicked: boolean = false;
+
+  constructor( private youtubeVideosService: YoutubeVideosService) {}
 
   public getVideos(): void {
     this.searchResponse = this.youtubeVideosService.getVideos();

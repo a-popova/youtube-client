@@ -22,7 +22,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
   exports: [
     SearchItemComponent,
     SearchResultsComponent,
-    SortPipe
+    SortPipe,
+    MainPageComponent
   ],
   providers: [YoutubeVideosService]
 })

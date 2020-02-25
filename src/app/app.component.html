@@ -1,3 +1,5 @@
-<app-header (onSearch)="onSearch()" (onSort)="setCriteria($event)" (onSortByWord)="setQueryWord($event)"></app-header>
+<app-header></app-header>
+<nav>
+    <a routerLink='/main'></a>
+</nav>
 <router-outlet></router-outlet>
-<app-search-results [searchIsLoaded]="searchIsLoaded" [criteria]="criteria" [queryWord]="queryWord"></app-search-results>
