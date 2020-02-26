@@ -10,7 +10,8 @@ export class LoginService {
   constructor(private router: Router){}
 
   public login(form: NgForm): void {
-    localStorage.setItem('accessToken', form.value);
+    let token = form.value.login + form.value.password;
+    localStorage.setItem('accessToken', token);
     this.router.navigate(['/results']);
   }
 
