@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import SearchResponse from '../../models/search-response.model';
+import { FilteringService } from 'src/app/core/services/filtering.service';
 import { YoutubeVideosService } from '../../services/youtube-videos.service';
 
 @Component({
@@ -15,19 +16,21 @@ export class MainPageComponent implements OnInit {
   public queryWord: string = '';
   public searchResponse: SearchResponse;
 
-  constructor(private youtubeVideosService: YoutubeVideosService) {
-    youtubeVideosService.searchClicked$.subscribe(
+  constructor(
+    private filteringService: FilteringService,
+    private youtubeVideoService: YoutubeVideosService) {
+    this.filteringService.searchClicked$.subscribe(
       () => {
         this.searchIsLoaded = true;
         this.getVideos();
       }
     ),
-    youtubeVideosService.sortCriteria$.subscribe(
+    this.filteringService.sortCriteria$.subscribe(
       (criteria) => {
         this.criteria = criteria;
       }
     ),
-    youtubeVideosService.sortWord$.subscribe(
+    this.filteringService.sortWord$.subscribe(
       (sortWord) => {
         this.queryWord = sortWord;
       }
@@ -35,11 +38,11 @@ export class MainPageComponent implements OnInit {
   }
 
   public getVideos(): void {
-    this.searchResponse = this.youtubeVideosService.getVideos();
+    this.searchResponse = this.youtubeVideoService.getVideos();
   }
 
   ngOnInit(): void {
-
+    this.getVideos();
   }
 
 }

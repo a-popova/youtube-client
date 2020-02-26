@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { YoutubeVideosService } from 'src/app/youtube/services/youtube-videos.service';
+import { FilteringService } from '../../services/filtering.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,12 @@ export class HeaderComponent implements OnInit {
   public filterIsActive: boolean = false;
   public input: string = '';
 
-  constructor( private youtubeVideosService: YoutubeVideosService) { }
+  constructor( private filteringService: FilteringService) { }
 
   public showResults(event: InputEvent, input: string): void {
     if (input) {
       event.preventDefault();
-      this.youtubeVideosService.showResults(input);
+      this.filteringService.showResults(input);
     } else {
       alert('Please, enter some text in search field');
     }

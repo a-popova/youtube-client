@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { YoutubeVideosService } from 'src/app/youtube/services/youtube-videos.service';
+import { FilteringService } from '../../services/filtering.service';
 
 @Component({
   selector: 'app-filtering-criteria',
@@ -14,7 +14,7 @@ export class FilteringCriteriaComponent implements OnInit {
   public userInput: string;
   public userInputUpdate: Subject<string> = new Subject<string>();
 
-  constructor( private youtubeVideosService: YoutubeVideosService) {
+  constructor( private filteringService: FilteringService) {
     this.userInputUpdate.pipe(
       debounceTime(400),
       distinctUntilChanged())
@@ -24,15 +24,15 @@ export class FilteringCriteriaComponent implements OnInit {
   }
 
   public sortByDate(): void {
-    this.youtubeVideosService.sortBy('date');
+    this.filteringService.sortBy('date');
   }
 
   public sortByViews(): void {
-    this.youtubeVideosService.sortBy('views');
+    this.filteringService.sortBy('views');
   }
 
   public sortByWord(queryWord: string): void {
-    this.youtubeVideosService.sortBy('word', queryWord);
+    this.filteringService.sortBy('word', queryWord);
   }
 
   public ngOnInit(): void {

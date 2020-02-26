@@ -16,14 +16,16 @@ export class SearchResultsComponent implements OnInit {
 
   @Input() public filterIsClicked: boolean = false;
 
-  constructor( private youtubeVideosService: YoutubeVideosService) {}
+  constructor( 
+    private youtubeVideosService: YoutubeVideosService
+  ) {}
 
   public getVideos(): void {
     this.searchResponse = this.youtubeVideosService.getVideos();
   }
 
   public ngOnInit(): void {
-    this.getVideos();
+    this.getVideos()
   }
 
 }

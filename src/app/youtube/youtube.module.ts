@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
 import { SortPipe } from './pipes/sort.pipe';
 import { SearchItemComponent } from './components/search-item/search-item.component';
@@ -6,7 +8,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { YoutubeVideosService } from './services/youtube-videos.service';
 import { GetBorderColorDirective } from './directives/get-border-color.directive';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-
+import { YoutubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,16 +16,18 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
     SearchResultsComponent,
     SortPipe,
     GetBorderColorDirective,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    YoutubeRoutingModule,
   ],
   exports: [
     SearchItemComponent,
     SearchResultsComponent,
     SortPipe,
-    MainPageComponent
+    MainPageComponent,
+    RouterModule
   ],
   providers: [YoutubeVideosService]
 })

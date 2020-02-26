@@ -1,8 +1,8 @@
-<form>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" validate>
     <p>Login</p>
     <label for="login">Login</label>
-    <input type="text" id="login" class="input">
+    <input type="text" id="login" name="login" class="input" ngModel required #login="ngModel">
     <label for="password">Password</label>
-    <input type="password" id="password" class="input">
+    <input type="password" id="password" name="password" class="input" ngModel required #password="ngModel">
     <input type="submit" value="Login" class="submit">
 </form>

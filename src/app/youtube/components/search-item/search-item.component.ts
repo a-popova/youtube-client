@@ -12,8 +12,7 @@ export class SearchItemComponent implements OnInit {
   @Input() public searchItem: SearchItem;
   public datePublished: moment.Moment;
 
-  constructor() {
-  }
+  constructor() { }
 
   public ngOnInit(): void {
     this.datePublished = moment(this.searchItem.snippet.publishedAt);
