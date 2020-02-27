@@ -5,7 +5,7 @@
   ],
   "linterOptions": {
     "exclude": [
-        "src/app/mock.response.ts"
+        "src/app/youtube/mock.response.ts"
     ]
   },
   "jsRules": {},

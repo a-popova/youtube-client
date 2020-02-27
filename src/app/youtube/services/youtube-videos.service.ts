@@ -6,7 +6,6 @@ import SearchItem from '../models/search-item.model';
 
 @Injectable()
 export class YoutubeVideosService {
- 
   public getVideos(): Observable<SearchResponse> {
     return of(mockedSearchResponse);
   }

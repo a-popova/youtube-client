@@ -34,7 +34,7 @@ export class MainPageComponent implements OnInit {
       (sortWord) => {
         this.queryWord = sortWord;
       }
-    )
+    );
   }
 
   public getVideos(): void {
@@ -42,7 +42,7 @@ export class MainPageComponent implements OnInit {
       .subscribe(videos => this.searchResponse = videos);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getVideos();
   }
 

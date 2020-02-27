@@ -7,18 +7,15 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class FilteringService {
+  private isSearchLoaded: Subject<string> = new Subject<string>();
+  private criteria: Subject<string> = new Subject<string>();
+  private sortQueryWord: Subject<string> = new Subject<string>();
 
-  constructor() { }
+  public searchClicked$: Observable<string> = this.isSearchLoaded.asObservable();
+  public sortCriteria$: Observable<string> = this.criteria.asObservable();
+  public sortWord$: Observable<string> = this.sortQueryWord.asObservable();
 
-  private isSearchLoaded = new Subject<string>();
-  private criteria = new Subject<string>();
-  private sortQueryWord = new Subject<string>();
-
-  searchClicked$ = this.isSearchLoaded.asObservable();
-  sortCriteria$ = this.criteria.asObservable();
-  sortWord$ = this.sortQueryWord.asObservable();
-
-  public sortBy(criteria: string, queryWord?: string) {
+  public sortBy(criteria: string, queryWord?: string): void {
     switch (criteria) {
       case 'date': {
         this.criteria.next('date');
@@ -34,10 +31,14 @@ export class FilteringService {
         this.criteria.next('word');
         this.sortQueryWord.next(queryWord);
       }
+
+      default: {
+        this.criteria.next('word');
+      }
     }
   }
 
-  public showResults(query: string) {
+  public showResults(query: string): void {
     this.isSearchLoaded.next(query);
   }
 

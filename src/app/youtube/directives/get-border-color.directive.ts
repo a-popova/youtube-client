@@ -5,13 +5,12 @@ import * as moment from 'moment';
   selector: '[appGetBorderColor]'
 })
 export class GetBorderColorDirective {
-  @Input() datePublished: moment.Moment;
+  @Input() public datePublished: moment.Moment;
 
   constructor(private el: ElementRef) {
 
   }
-  
-  ngOnInit() {
+  public ngOnInit(): void {
     let currentDate: moment.Moment = moment();
     let daysDiff: number = currentDate.diff(this.datePublished, 'days');
     let monthDiff: number = currentDate.diff(this.datePublished, 'months');

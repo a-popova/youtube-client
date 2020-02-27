@@ -5,7 +5,6 @@ import { FilteringCriteriaComponent } from './components/filtering-criteria/filt
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './pages/page404/page404.component';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,

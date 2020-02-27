@@ -5,7 +5,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: 'results', canLoad: [AuthGuard], loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule) },
+  { path: 'results', canLoad: [AuthGuard],
+  loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule) },
   { path: '', redirectTo: '/results', pathMatch: 'full' },
   { path: '**', component: Page404Component }
 ];

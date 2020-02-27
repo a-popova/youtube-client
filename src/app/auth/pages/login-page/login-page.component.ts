@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
     this.loginService.login(form);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

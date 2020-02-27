@@ -11,13 +11,13 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  onSubmit(f: NgForm) {
+  public onSubmit(f: NgForm): void {
     if (f.valid) {
       this.onFormSubmit.emit(f);
     }
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

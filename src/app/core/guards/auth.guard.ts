@@ -10,7 +10,7 @@ export class AuthGuard implements CanLoad {
   constructor(private router: Router, private service: LoginService) {
   }
 
-  canLoad(route: Route): boolean {
+  public canLoad(route: Route): boolean {
     return this.checkLogin();
   }
 

@@ -19,14 +19,14 @@ export class DetailedInformationPageComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getVideo();
   }
 
   public getVideo(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id: string = this.route.snapshot.paramMap.get('id');
     this.youtubeVideoService.getVideo(id)
-      .subscribe(video => this.video = video)
+      .subscribe(video => this.video = video);
   }
 
   public goBack(): void {
