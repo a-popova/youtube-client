@@ -12,20 +12,11 @@ export class SearchResultsComponent implements OnInit {
   @Input() public searchIsLoaded: boolean;
   @Input() public criteria: string;
   @Input() public queryWord: string;
-  public searchResponse: SearchResponse;
-
+  @Input() public searchResponse: SearchResponse;
   @Input() public filterIsClicked: boolean = false;
 
-  constructor( 
-    private youtubeVideosService: YoutubeVideosService
-  ) {}
+  constructor() {}
 
-  public getVideos(): void {
-    this.searchResponse = this.youtubeVideosService.getVideos();
-  }
-
-  public ngOnInit(): void {
-    this.getVideos()
-  }
+  public ngOnInit(): void {}
 
 }

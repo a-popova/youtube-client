@@ -20,6 +20,9 @@
                 <img class="login--icon" src="../../../assets/images/login-icon.png" width="19" height="19">
             </div>
         </div>
+        <div class="logout">
+            <input type="submit" value="Log out" (click)="logout()">
+        </div>
     </div>  
     <div class="filter-pannel">
         <app-filtering-criteria [filterIsActive]="filterIsActive"></app-filtering-criteria>

@@ -1,1 +1,36 @@
-<p>detailed-information works!</p>
+<input class="back" type="submit" value="" (click)="clickBack()">
+<div class="card">
+    <div class="card--img">
+        <img src="{{searchItem.snippet.thumbnails.maxres.url}}">
+    </div>
+    <div class="card--description" appGetBorderColor>
+        <div>
+            <div class="card--description--title">
+                <p>{{ searchItem.snippet.localized.title }}</p>
+                <p>{{ searchItem.snippet.publishedAt | date:'fullDate' }}</p>
+            </div>
+            <div class="card--description--info">
+                <p>Description:</p>
+                <p>{{searchItem.snippet.localized.description}}</p>
+            </div>
+        </div>
+        <div class="card--description--statistics">
+            <div class="views">
+                <img src="../../../assets/images/viewed.svg">
+                <p>{{searchItem.statistics.viewCount}}</p>
+            </div>
+            <div class="likes">
+                <img src="../../../assets/images/liked.svg">
+                <p>{{searchItem.statistics.likeCount}}</p>
+            </div>
+            <div class="dislikes">
+                <img src="../../../assets/images/dislike.svg">
+                <p>{{searchItem.statistics.dislikeCount}}</p>
+            </div>
+            <div class="comments">
+                <img src="../../../assets/images/Group 9.svg">
+                <p>{{searchItem.statistics.commentCount}}</p>
+            </div>
+        </div>
+    </div>
+</div>

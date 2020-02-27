@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { YoutubeVideosService } from 'src/app/youtube/services/youtube-videos.service';
 import { FilteringService } from '../../services/filtering.service';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,10 @@ export class HeaderComponent implements OnInit {
   public filterIsActive: boolean = false;
   public input: string = '';
 
-  constructor( private filteringService: FilteringService) { }
+  constructor(
+    private filteringService: FilteringService,
+    private loginService: LoginService
+  ) { }
 
   public showResults(event: InputEvent, input: string): void {
     if (input) {
@@ -24,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   public showFilterPanel(): void {
     this.filterIsActive = !this.filterIsActive;
+  }
+
+  public logout(): void {
+    this.loginService.logout();
   }
 
   public ngOnInit(): void {

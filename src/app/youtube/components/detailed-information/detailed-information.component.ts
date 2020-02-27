@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import SearchItem from '../../models/search-item.model';
+
 
 @Component({
   selector: 'app-detailed-information',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detailed-information.component.scss']
 })
 export class DetailedInformationComponent implements OnInit {
+  @Input() public searchItem: SearchItem;
+  @Output() public goBack = new EventEmitter<void>();
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+
+  }
+
+  public clickBack(): void {
+    this.goBack.emit();
   }
 
 }

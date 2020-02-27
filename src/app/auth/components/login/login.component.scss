@@ -46,6 +46,10 @@ form {
         color: #ffffff;
         display: flex;
         justify-content: center;
+        &:hover {
+            cursor: pointer;
+            border: 3px solid #2f80ed;
+        }
     }
 
     label {

@@ -73,21 +73,9 @@
         border: none;
         border-radius: 5px;
         color: #ffffff;
+        &:hover {
+            cursor: pointer;
+            border: 2px solid #2f80ed;
+        }
     }
-}
-
-.search-item.blue {
-    border-bottom: 5px solid blue;
-}
-
-.search-item.green {
-    border-bottom: 5px solid green;
-}
-
-.search-item.yellow {
-    border-bottom: 5px solid yellow;
-}
-
-.search-item.red {
-    border-bottom: 5px solid red;
 }

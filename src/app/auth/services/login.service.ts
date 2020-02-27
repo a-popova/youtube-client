@@ -15,4 +15,11 @@ export class LoginService {
     this.router.navigate(['/results']);
   }
 
+  public logout(): void {
+    if (localStorage.getItem('accessToken')) {
+      localStorage.removeItem('accessToken');
+      this.router.navigate(['/login']);
+    }
+  }
+
 }

@@ -38,7 +38,8 @@ export class MainPageComponent implements OnInit {
   }
 
   public getVideos(): void {
-    this.searchResponse = this.youtubeVideoService.getVideos();
+    this.youtubeVideoService.getVideos()
+      .subscribe(videos => this.searchResponse = videos);
   }
 
   ngOnInit(): void {

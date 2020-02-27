@@ -9,6 +9,8 @@ import { YoutubeVideosService } from './services/youtube-videos.service';
 import { GetBorderColorDirective } from './directives/get-border-color.directive';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { DetailedInformationPageComponent } from './pages/detailed-information-page/detailed-information-page.component';
+import { DetailedInformationComponent } from './components/detailed-information/detailed-information.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     SortPipe,
     GetBorderColorDirective,
     MainPageComponent,
+    DetailedInformationPageComponent,
+    DetailedInformationComponent
   ],
   imports: [
     CommonModule,
@@ -25,8 +29,10 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
   exports: [
     SearchItemComponent,
     SearchResultsComponent,
+    DetailedInformationComponent,
     SortPipe,
     MainPageComponent,
+    DetailedInformationPageComponent,
     RouterModule
   ],
   providers: [YoutubeVideosService]
