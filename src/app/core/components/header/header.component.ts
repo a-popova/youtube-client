@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { YoutubeVideosService } from 'src/app/youtube/services/youtube-videos.service';
+import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
+
 import { FilteringService } from '../../services/filtering.service';
 import { LoginService } from 'src/app/auth/services/login.service';
 
@@ -11,19 +13,26 @@ import { LoginService } from 'src/app/auth/services/login.service';
 export class HeaderComponent implements OnInit {
   public filterIsActive: boolean = false;
   public input: string = '';
+  public userInput: string;
+  public userInputUpdate: Subject<string> = new Subject<string>();
 
   constructor(
     private filteringService: FilteringService,
     private loginService: LoginService
-  ) { }
+  ) {
+    this.userInputUpdate.pipe(
+      filter(text => text.length > 3),
+      debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(value => {
+        this.showResults(value);
+      });
+  }
 
-  public showResults(event: InputEvent, input: string): void {
+  public showResults(input: string): void {
     if (input) {
-      event.preventDefault();
       this.filteringService.showResults(input);
-    } else {
-      alert('Please, enter some text in search field');
-    }
+    } 
   }
 
   public showFilterPanel(): void {

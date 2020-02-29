@@ -5,8 +5,9 @@
                 <img src="../../../assets/images/logo.png" width="50" height="50">
             </div>
             <form class="search-pannel--input">
-                <input #textInput type="text" placeholder="What are you searching for?">
-                <input type="submit" value="search" (click)="showResults($event, textInput.value)">
+                <input #input name="input" type="text" placeholder="What are you searching for?"
+                [(ngModel)]="userInput" type="text"
+                (ngModelChange)="this.userInputUpdate.next($event)">
             </form>
             <div class="search-pannel--filter-button">
                 <input class="filter" type="submit" value="" title="show filters" (click)="showFilterPanel()">
