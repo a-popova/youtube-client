@@ -4,6 +4,7 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 
 import { FilteringService } from '../../services/filtering.service';
 import { LoginService } from 'src/app/auth/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,8 +18,9 @@ export class HeaderComponent implements OnInit {
   public userInputUpdate: Subject<string> = new Subject<string>();
 
   constructor(
+    public loginService: LoginService,
     private filteringService: FilteringService,
-    private loginService: LoginService
+    private router: Router
   ) {
     this.userInputUpdate.pipe(
       filter(text => text.length > 3),
@@ -35,12 +37,12 @@ export class HeaderComponent implements OnInit {
     } 
   }
 
-  public showFilterPanel(): void {
-    this.filterIsActive = !this.filterIsActive;
+  public goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
-  public logout(): void {
-    this.loginService.logout();
+  public showFilterPanel(): void {
+    this.filterIsActive = !this.filterIsActive;
   }
 
   public ngOnInit(): void {
