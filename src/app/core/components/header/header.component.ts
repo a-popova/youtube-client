@@ -5,6 +5,7 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 import { FilteringService } from '../../services/filtering.service';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { Router } from '@angular/router';
+import { YoutubeVideosService } from 'src/app/youtube/services/youtube-videos.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public filterIsActive: boolean = false;
   public input: string = '';
   public userInput: string;
   public userInputUpdate: Subject<string> = new Subject<string>();
 
   constructor(
     public loginService: LoginService,
+    private youtubeService: YoutubeVideosService,
     private filteringService: FilteringService,
     private router: Router
   ) {
@@ -42,7 +43,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public showFilterPanel(): void {
-    this.filterIsActive = !this.filterIsActive;
+    this.filteringService.showFilters();
   }
 
   public ngOnInit(): void {

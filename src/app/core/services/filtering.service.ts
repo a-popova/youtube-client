@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilteringService {
   private isSearchLoaded: Subject<string> = new Subject<string>();
+  public isFilterLoaded: Subject<boolean> = new Subject<boolean>();
   private criteria: Subject<string> = new Subject<string>();
   private sortQueryWord: Subject<string> = new Subject<string>();
 
   public searchClicked$: Observable<string> = this.isSearchLoaded.asObservable();
+  public filterClicked$: Observable<boolean> = this.isFilterLoaded.asObservable();
   public sortCriteria$: Observable<string> = this.criteria.asObservable();
   public sortWord$: Observable<string> = this.sortQueryWord.asObservable();
 
@@ -40,6 +41,10 @@ export class FilteringService {
 
   public showResults(query: string): void {
     this.isSearchLoaded.next(query);
+  }
+
+  public showFilters(): void {
+    this.isFilterLoaded.next(true);
   }
 
 }

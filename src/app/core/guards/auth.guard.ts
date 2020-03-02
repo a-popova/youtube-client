@@ -25,7 +25,6 @@ export class LoadGuard implements CanLoad {
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);
     }
-    console.log(this.isLoggedIn);
     return this.isLoggedIn;
   }
 }
