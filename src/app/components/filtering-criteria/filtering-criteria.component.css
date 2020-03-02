@@ -1,0 +1,32 @@
+.filter-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.filter-container span {
+  margin: 0 0.5em 0 1.5em;
+  color: #2f80ed;
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.filter-container span:hover, .filter-container span:focus {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.filter-container span.active {
+  background-color: lightblue;
+  color: darkblue;
+  font-weight: bold;
+  font-size: 14px;
+}
+/*# sourceMappingURL=filtering-criteria.component.css.map */

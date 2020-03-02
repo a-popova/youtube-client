@@ -1,1 +1,28 @@
-<p>header works!</p>
+<div class="header">
+    <div class="search-pannel">
+        <div class="search-pannel--container">
+            <div class="search-pannel--logo">
+                <img src="../../../assets/images/logo.png" width="50" height="50">
+            </div>
+            <form class="search-pannel--input">
+                <input #textInput type="text" placeholder="What are you searching for?">
+                <input type="submit" value="search" (click)="showResults($event, textInput.value)">
+            </form>
+            <div class="search-pannel--filter-button">
+                <input class="filter" type="submit" value="" title="show filters" (click)="showFilterPanel()">
+            </div>
+        </div>
+        <div class="login">
+            <div class="login--name">
+                <p>Your Name</p>
+            </div>
+            <div>
+                <img class="login--icon" src="../../../assets/images/login-icon.png" width="19" height="19">
+            </div>
+        </div>
+    </div>  
+    <div class="filter-pannel">
+        <app-filtering-criteria [filterIsActive]="filterIsActive"
+        (sortByDate)="sortByDate()" (sortByViews)="sortByViews()" (sortByWord)="sortByWord($event)"></app-filtering-criteria>
+    </div>  
+</div>

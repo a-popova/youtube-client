@@ -1,2 +1,8 @@
-<p>search-results works!</p>
-<app-search-item></app-search-item>
+<div class="search-results-container" *ngIf="searchIsLoaded; else noResultsBlock">
+    <app-search-item *ngFor="let item of (searchResponse.items | sort: criteria: queryWord)" [searchItem]="item"></app-search-item>
+</div>
+<ng-template #noResultsBlock>
+    <div class="noResults">
+        <p>Please, enter your inquiry into the search field above</p>
+    </div>
+</ng-template>

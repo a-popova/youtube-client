@@ -24,6 +24,7 @@ interface Snippet {
         title: string;
         description: string
     };
+    defaultLanguage?: string;
     defaultAudioLanguage: string;
 }
 
