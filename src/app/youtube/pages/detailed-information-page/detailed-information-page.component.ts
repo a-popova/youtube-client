@@ -26,7 +26,7 @@ export class DetailedInformationPageComponent implements OnInit {
   public getVideo(): void {
     const id: string = this.route.snapshot.paramMap.get('id');
     this.youtubeVideoService.getVideo(id)
-      .subscribe(video => {console.log(video);this.video = video.items[0]});
+      .subscribe(video => this.video = video.items[0]);
   }
 
   public goBack(): void {
