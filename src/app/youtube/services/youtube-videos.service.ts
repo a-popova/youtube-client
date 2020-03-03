@@ -29,7 +29,7 @@ export class YoutubeVideosService {
     }
   }
 
-  public getVideo()/*: Observable<SearchItem>*/ {
-    // return of(mockedSearchResponse.items.find(video => video.id === id));
+  public getVideo(id: string): Observable<SearchResponse> {
+    return this.http.get<SearchResponse>(`${this.videosUrl}part=snippet,contentDetails,statistics&id=${id}&key=${this.youtubeAPIkey}`);
   }
 }
