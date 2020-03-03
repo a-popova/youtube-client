@@ -40,7 +40,7 @@ export class MainPageComponent implements OnInit {
 
   public getVideos(query?: string): void {
     this.youtubeVideosService.getVideos(query)
-      .subscribe(res => { 
+      .subscribe(res => {
         this.renderVideos(res.items);
       });
   }
@@ -49,7 +49,7 @@ export class MainPageComponent implements OnInit {
     this.youtubeVideosService.renderVideos(itemsArray)
       .subscribe(videos => {
         this.searchResponse = videos;
-      })
+      });
   }
 
   public ngOnInit(): void {

@@ -6,10 +6,10 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class FilteringService {
-  private isSearchLoaded: Subject<string> = new Subject<string>();
-  public isFilterLoaded: Subject<boolean> = new Subject<boolean>();
   private criteria: Subject<string> = new Subject<string>();
   private sortQueryWord: Subject<string> = new Subject<string>();
+  private isSearchLoaded: Subject<string> = new Subject<string>();
+  public isFilterLoaded: Subject<boolean> = new Subject<boolean>();
 
   public searchClicked$: Observable<string> = this.isSearchLoaded.asObservable();
   public filterClicked$: Observable<boolean> = this.isFilterLoaded.asObservable();

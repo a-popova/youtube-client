@@ -14,10 +14,9 @@ export class YoutubeInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  public intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(req.clone({
       url: `${environment.API_url}${req.url}${this.youtubeAPIkey}`
     }));
   }
-  
 }

@@ -8,8 +8,10 @@ import { LoginService } from 'src/app/auth/services/login.service';
 export class LoadGuard implements CanLoad {
   public isLoggedIn: boolean = false;
 
-  constructor(private router: Router,
-    private service: LoginService) {
+  constructor(
+    private router: Router,
+    private service: LoginService
+  ) {
       this.service.isLoggedIn$.subscribe(
         (isLoggedIn) => {
           if (isLoggedIn) {
@@ -18,7 +20,7 @@ export class LoadGuard implements CanLoad {
             this.isLoggedIn = false;
           }
         }
-      )
+      );
     }
 
   public canLoad(route: Route): boolean {
@@ -44,7 +46,7 @@ export class AuthGuard implements CanActivate {
           this.isLoggedIn = false;
         }
       }
-    )
+    );
   }
 
   public canActivate(): boolean {

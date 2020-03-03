@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   public showResults(input: string): void {
     if (input) {
       this.filteringService.showResults(input);
-    } 
+    }
   }
 
   public goToLogin(): void {

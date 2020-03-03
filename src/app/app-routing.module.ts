@@ -5,9 +5,9 @@ import { AuthGuard, LoadGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: 'results', /*canLoad: [LoadGuard], canActivate: [AuthGuard],*/
+  { path: 'results', canLoad: [LoadGuard], canActivate: [AuthGuard],
   loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule) },
-  { path: '', /*canLoad: [LoadGuard], canActivate: [AuthGuard],*/
+  { path: '', canLoad: [LoadGuard], canActivate: [AuthGuard],
   redirectTo: '/results', pathMatch: 'full' },
   { path: '**', component: Page404Component }
 ];

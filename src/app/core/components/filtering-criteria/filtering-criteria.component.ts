@@ -25,7 +25,7 @@ export class FilteringCriteriaComponent implements OnInit {
       () => {
         this.filterIsActive = !this.filterIsActive;
       }
-    )
+    );
   }
 
   public sortByDate(): void {

@@ -9,7 +9,7 @@ import SearchItem from '../models/search-item.model';
 })
 export class YoutubeVideosService {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   public getVideos(query?: string): Observable<SearchResponse> {
     if (query) {
@@ -18,10 +18,10 @@ export class YoutubeVideosService {
   }
 
   public renderVideos(itemsArray?: SearchItem[]): Observable<SearchResponse> {
-    if (itemsArray){
-      let idArr = [];
+    if (itemsArray) {
+      let idArr: string[] = [];
       itemsArray.forEach((item) => idArr.push(item.id.videoId || item.id.channelId ));
-      let idStr = idArr.join();
+      let idStr: string = idArr.join();
       return this.http.get<SearchResponse>(`videos?part=snippet,contentDetails,statistics&id=${idStr}`);
     }
   }

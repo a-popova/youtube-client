@@ -7,10 +7,10 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class LoginService {
-  public isLoggedIn$: BehaviorSubject<boolean>;
+  public isLoggedIn$: BehaviorSubject<string|null>;
 
   constructor(private router: Router) {
-    const isLoggedIn = localStorage.getItem('accessToken') === 'true';
+    const isLoggedIn: string | null = localStorage.getItem('accessToken');
     this.isLoggedIn$ = new BehaviorSubject(isLoggedIn);
   }
 
@@ -18,13 +18,13 @@ export class LoginService {
     let token: string = form.value.login + form.value.password;
     localStorage.setItem('accessToken', token);
     this.router.navigate(['/results']);
-    this.isLoggedIn$.next(true);
+    this.isLoggedIn$.next(localStorage.getItem('accessToken'));
   }
 
   public logout(): void {
     if (localStorage.getItem('accessToken')) {
       localStorage.removeItem('accessToken');
-      this.isLoggedIn$.next(false);
+      this.isLoggedIn$.next(null);
       this.router.navigate(['/login']);
     }
   }
