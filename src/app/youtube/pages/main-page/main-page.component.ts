@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 import SearchResponse from '../../models/search-response.model';
 import { FilteringService } from 'src/app/core/services/filtering.service';
 import { YoutubeVideosService } from '../../services/youtube-videos.service';
-import SearchItem from '../../models/search-item.model';
 
 @Component({
   selector: 'app-main-page',
@@ -39,22 +39,17 @@ export class MainPageComponent implements OnInit {
   }
 
   public getVideos(query?: string): void {
-    this.youtubeVideosService.getVideos(query)
-      .subscribe(res => {
-        this.renderVideos(res.items);
-      });
-  }
-
-  public renderVideos(itemsArray?: SearchItem[]): void {
-    this.youtubeVideosService.renderVideos(itemsArray)
-      .subscribe(videos => {
-        this.searchResponse = videos;
-      });
+    this.youtubeVideosService.getVideos(query).pipe(
+      switchMap(response => {
+        return this.youtubeVideosService.renderVideos(response.items);
+      })
+    ).subscribe(res => {
+      this.searchResponse = res;
+    });
   }
 
   public ngOnInit(): void {
     this.getVideos();
-    this.renderVideos();
   }
 
 }
