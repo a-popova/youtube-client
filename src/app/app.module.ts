@@ -18,7 +18,8 @@ import { YoutubeInterceptor } from './youtube/youtube.interceptor';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

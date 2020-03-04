@@ -6,7 +6,7 @@ import { DetailedInformationPageComponent }
 from './pages/detailed-information-page/detailed-information-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
+  { path: '', component: MainPageComponent, data: { reuse: true }},
   { path: ':id', component: DetailedInformationPageComponent}
 ];
 
