@@ -65,6 +65,12 @@
         }
 
         p:last-child {
+            width: 420px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 10;
+            -webkit-box-orient: vertical;  
+
             font-size: 12px;
             line-height: 14px;
             color: #828282;
