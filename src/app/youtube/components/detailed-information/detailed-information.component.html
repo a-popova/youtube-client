@@ -1,5 +1,5 @@
 <input class="back" type="submit" value="" (click)="clickBack()">
-<div class="card">
+<div class="card" *ngIf="searchItem">
     <div class="card--img">
         <img src="{{searchItem.snippet.thumbnails.maxres.url}}">
     </div>

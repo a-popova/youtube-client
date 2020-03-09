@@ -29,16 +29,23 @@
     &--stats {
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
 
     &--name {
-        line-height: 23px;
-        font-size: 18px;
+        line-height: 21px;
+        font-size: 16px;
         font-weight: bold;
         color: #4f4f4f;
         text-align: center;
         p {
+            width: 230px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+
             margin: 0.5em 0 0 0;
         }
     }
@@ -54,6 +61,7 @@
         align-items: center;
         justify-content: center;
         flex-grow: 1;
+        margin-right: 0.5em;
         
         img {
             max-width: 20px;

@@ -1,5 +1,5 @@
 <div class="search-results-container" *ngIf="searchIsLoaded; else noResultsBlock">
-    <app-search-item *ngFor="let item of (searchResponse.items | sort: criteria: queryWord)" [searchItem]="item"></app-search-item>
+    <app-search-item [searchItem]="item" *ngFor="let item of (searchResponse.items | sort: criteria: queryWord )"></app-search-item>
 </div>
 <ng-template #noResultsBlock>
     <div class="noResults">

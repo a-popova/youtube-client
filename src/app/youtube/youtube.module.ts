@@ -37,6 +37,6 @@ from './components/detailed-information/detailed-information.component';
     DetailedInformationPageComponent,
     RouterModule
   ],
-  providers: [YoutubeVideosService]
+  providers: [YoutubeVideosService ]
 })
 export class YoutubeModule { }

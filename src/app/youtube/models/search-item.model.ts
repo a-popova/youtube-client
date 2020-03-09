@@ -39,7 +39,7 @@ interface Statistics {
 export default interface SearchItem {
     kind: string;
     etag: string;
-    id: string;
+    id: {kind: string, videoId?: string, channelId?: string};
     snippet: Snippet;
     statistics: Statistics;
 }

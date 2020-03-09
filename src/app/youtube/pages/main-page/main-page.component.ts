@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 import SearchResponse from '../../models/search-response.model';
 import { FilteringService } from 'src/app/core/services/filtering.service';
@@ -18,11 +19,11 @@ export class MainPageComponent implements OnInit {
 
   constructor(
     private filteringService: FilteringService,
-    private youtubeVideoService: YoutubeVideosService) {
+    private youtubeVideosService: YoutubeVideosService) {
     this.filteringService.searchClicked$.subscribe(
-      () => {
+      (query) => {
         this.searchIsLoaded = true;
-        this.getVideos();
+        this.getVideos(query);
       }
     ),
     this.filteringService.sortCriteria$.subscribe(
@@ -37,9 +38,14 @@ export class MainPageComponent implements OnInit {
     );
   }
 
-  public getVideos(): void {
-    this.youtubeVideoService.getVideos()
-      .subscribe(videos => this.searchResponse = videos);
+  public getVideos(query?: string): void {
+    this.youtubeVideosService.getVideos(query).pipe(
+      switchMap(response => {
+        return this.youtubeVideosService.renderVideos(response.items);
+      })
+    ).subscribe(res => {
+      this.searchResponse = res;
+    });
   }
 
   public ngOnInit(): void {

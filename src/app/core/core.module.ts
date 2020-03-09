@@ -4,6 +4,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FilteringCriteriaComponent } from './components/filtering-criteria/filtering-criteria.component';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './pages/page404/page404.component';
+import { FilteringService } from './services/filtering.service';
+import { YoutubeVideosService } from '../youtube/services/youtube-videos.service';
 
 @NgModule({
   declarations: [

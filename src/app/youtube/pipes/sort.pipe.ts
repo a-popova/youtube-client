@@ -31,7 +31,7 @@ export class SortPipe implements PipeTransform {
 
       case 'word': {
         let sortedArray: SearchItem[] = items.filter((item) =>
-        item.snippet.title.includes(queryWord));
+        item.snippet.title.toLowerCase().includes(queryWord.toLowerCase()));
         return sortedArray;
       }
 

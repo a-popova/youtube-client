@@ -19,6 +19,7 @@
         img {
             width: 729px;
             height: 461px;
+            object-fit: cover;
             border-radius: 0px 0px 0px 5px;
         }
     }
@@ -39,7 +40,7 @@
     &--title {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
 
         p:first-child {
             font-size: 24px;
@@ -64,6 +65,12 @@
         }
 
         p:last-child {
+            width: 420px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 10;
+            -webkit-box-orient: vertical;  
+
             font-size: 12px;
             line-height: 14px;
             color: #828282;

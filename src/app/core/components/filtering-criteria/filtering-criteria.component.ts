@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FilteringService } from '../../services/filtering.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { FilteringService } from '../../services/filtering.service';
   styleUrls: ['./filtering-criteria.component.scss']
 })
 export class FilteringCriteriaComponent implements OnInit {
-  @Input() public filterIsActive: boolean;
+  public filterIsActive: boolean = false;
   public userInput: string;
   public userInputUpdate: Subject<string> = new Subject<string>();
 
@@ -20,7 +20,12 @@ export class FilteringCriteriaComponent implements OnInit {
       distinctUntilChanged())
       .subscribe(value => {
         this.sortByWord(value);
-      });
+      }),
+    this.filteringService.filterClicked$.subscribe(
+      () => {
+        this.filterIsActive = !this.filterIsActive;
+      }
+    );
   }
 
   public sortByDate(): void {

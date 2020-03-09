@@ -5,26 +5,25 @@
                 <img src="../../../assets/images/logo.png" width="50" height="50">
             </div>
             <form class="search-pannel--input">
-                <input #textInput type="text" placeholder="What are you searching for?">
-                <input type="submit" value="search" (click)="showResults($event, textInput.value)">
+                <input #input name="input" type="text" placeholder="What are you searching for?"
+                [(ngModel)]="userInput" type="text"
+                (ngModelChange)="this.userInputUpdate.next($event)">
             </form>
             <div class="search-pannel--filter-button">
                 <input class="filter" type="submit" value="" title="show filters" (click)="showFilterPanel()">
             </div>
         </div>
         <div class="login">
-            <div class="login--name">
-                <p>Your Name</p>
-            </div>
+            <a href='#' *ngIf='loginService.isLoggedIn$ | async'
+            (click)='loginService.logout()'>Log Out</a>
+            <a href='#' *ngIf='!(loginService.isLoggedIn$ | async)'
+            (click)='goToLogin()'>Login</a>
             <div>
                 <img class="login--icon" src="../../../assets/images/login-icon.png" width="19" height="19">
             </div>
         </div>
-        <div class="logout">
-            <input type="submit" value="Log out" (click)="logout()">
-        </div>
     </div>  
     <div class="filter-pannel">
-        <app-filtering-criteria [filterIsActive]="filterIsActive"></app-filtering-criteria>
+        <app-filtering-criteria></app-filtering-criteria>
     </div>  
 </div>
